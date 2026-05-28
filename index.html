@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>10-A English</title>
+    <title>10-A English · B1+ Future Constructions</title>
     <style>
         * {
             margin: 0;
@@ -20,11 +20,11 @@
         }
 
         .wikibox {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             background: #ffffff;
             border-radius: 2px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
             border: 1px solid #d0d5da;
             overflow: hidden;
         }
@@ -250,7 +250,7 @@
 
         @media (max-width: 650px) {
             .wiki-content { padding: 1rem; }
-            .ukr-text { font-size: 1.4rem; }
+            .ukr-text { font-size: 1.3rem; }
             .option-item { padding: 8px 14px; }
         }
     </style>
@@ -259,7 +259,7 @@
 <div class="wikibox">
     <div class="wiki-header">
         <h1>10-A English · future constructions</h1>
-        <p>will / be going to / be about to — Ukrainian to English translation</p>
+        <p>will / be going to / be about to — B1+ / B2 level · High Note 3 (units 1–5)</p>
         <div class="wiki-stats">
             <span class="difficulty-badge" id="levelLabel">32 verified questions</span>
             <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
@@ -280,146 +280,50 @@
             <button class="wiki-btn wiki-btn-finish" id="finishBtn">finalise test</button>
         </div>
         <button class="wiki-btn wiki-btn-reset" id="resetBtn">restart session</button>
-        <footer>prepared by lyceum student: Reshetnyk Emmanuel | 32 handcrafted questions</footer>
+        <footer>prepared by lyceum student: Reshetnyk Emmanuel | 32 handcrafted questions · will · going to · about to</footer>
     </div>
 </div>
 
 <script>
 (function(){
-    const QUESTIONS = [
-        { ukr: "Я зателефоную тобі завтра, навіть якщо буде пізно.",
-          correct: "I will call you tomorrow even if it is late.",
-          wrong1: "I am going to call you tomorrow even if it is late.",
-          wrong2: "I call you tomorrow even if it is late." },
-        { ukr: "Вона збирається відкрити власну справу наступного місяця.",
-          correct: "She is going to open her own business next month.",
-          wrong1: "She will open her own business next month.",
-          wrong2: "She going to open her own business next month." },
-        { ukr: "Автобус ось-ось від'їде, поспішай!",
-          correct: "The bus is about to leave, hurry up!",
-          wrong1: "The bus will about to leave, hurry up!",
-          wrong2: "The bus is going to leave, hurry up!" },
-        { ukr: "Я обіцяю, що ніколи більше не приховуватиму правду.",
-          correct: "I promise I will never hide the truth again.",
-          wrong1: "I promise I am going to never hide the truth again.",
-          wrong2: "I promise I never hide the truth again." },
-        { ukr: "Подивись на ті хмари — зараз піде дощ.",
-          correct: "Look at those clouds — it is going to rain.",
-          wrong1: "Look at those clouds — it will rain.",
-          wrong2: "Look at those clouds — it about to rain." },
-        { ukr: "Він ось-ось втратить свідомість, викличте лікаря!",
-          correct: "He is about to lose consciousness, call a doctor!",
-          wrong1: "He will about to lose consciousness, call a doctor!",
-          wrong2: "He is going to lose consciousness, call a doctor!" },
-        { ukr: "Я думаю, що завтрашню зустріч скасують.",
-          correct: "I think tomorrow's meeting will be canceled.",
-          wrong1: "I think tomorrow's meeting is going to be canceled.",
-          wrong2: "I think tomorrow's meeting be canceled." },
-        { ukr: "Ми збираємося реконструювати міст наступного року.",
-          correct: "We are going to reconstruct the bridge next year.",
-          wrong1: "We will reconstruct the bridge next year.",
-          wrong2: "We are to reconstruct the bridge next year." },
-        { ukr: "Потяг ось-ось прибуде на перон, займіть місця.",
-          correct: "The train is about to arrive at the platform, take your seats.",
-          wrong1: "The train will about to arrive at the platform.",
-          wrong2: "The train is going to arrive at the platform." },
-        { ukr: "Телефон дзвонить! Я зараз відповім.",
-          correct: "The phone is ringing! I will answer it.",
-          wrong1: "The phone is ringing! I am going to answer it.",
-          wrong2: "The phone is ringing! I answer it." },
-        { ukr: "Незважаючи на попередження, вона все одно збирається мандрувати сама.",
-          correct: "Despite the warnings, she is still going to travel alone.",
-          wrong1: "Despite the warnings, she will still travel alone.",
-          wrong2: "Despite the warnings, she is about travel alone." },
-        { ukr: "Вони ось-ось підпишуть контракт — залишилися останні деталі.",
-          correct: "They are about to sign the contract — final details remain.",
-          wrong1: "They will about to sign the contract — final details remain.",
-          wrong2: "They are going to sign the contract — final details remain." },
-        { ukr: "Якщо ти не зупинишся, я піду геть.",
-          correct: "If you don't stop, I will leave.",
-          wrong1: "If you don't stop, I am going to leave.",
-          wrong2: "If you don't stop, I leave." },
-        { ukr: "Це неймовірно! Вона вперше виступить на сцені.",
-          correct: "This is incredible! She is going to perform on stage for the first time.",
-          wrong1: "This is incredible! She will perform on stage for the first time.",
-          wrong2: "This is incredible! She is about perform on stage for the first time." },
-        { ukr: "Дощ ось-ось почнеться, вже відчувається вологість.",
-          correct: "The rain is about to start, the humidity is already felt.",
-          wrong1: "The rain will start, the humidity is already felt.",
-          wrong2: "The rain is going start, the humidity is already felt." },
-        { ukr: "Я переконаний, що вони виграють цей турнір.",
-          correct: "I am convinced they will win this tournament.",
-          wrong1: "I am convinced they are going to win this tournament.",
-          wrong2: "I am convinced they win this tournament." },
-        { ukr: "Він збирається звільнитися з роботи, бо знайшов кращу пропозицію.",
-          correct: "He is going to quit his job because he found a better offer.",
-          wrong1: "He will quit his job because he found a better offer.",
-          wrong2: "He is about quit his job because he found a better offer." },
-        { ukr: "Увага! Бомба ось-ось вибухне.",
-          correct: "Attention! The bomb is about to explode.",
-          wrong1: "Attention! The bomb will explode.",
-          wrong2: "Attention! The bomb going to explode." },
-        { ukr: "Я обіцяю, що повернуся до світанку.",
-          correct: "I promise I will return by dawn.",
-          wrong1: "I promise I am going to return by dawn.",
-          wrong2: "I promise I return by dawn." },
-        { ukr: "Згідно з прогнозом, температура завтра підніметься вище тридцяти градусів.",
-          correct: "According to the forecast, the temperature will rise above thirty degrees tomorrow.",
-          wrong1: "According to the forecast, the temperature is going to rise above thirty degrees tomorrow.",
-          wrong2: "According to the forecast, the temperature rises above thirty degrees tomorrow." },
-        { ukr: "Вона ось-ось зробить важливу заяву — всі замовкли.",
-          correct: "She is about to make an important statement — everyone fell silent.",
-          wrong1: "She will about to make an important statement.",
-          wrong2: "She is going to make an important statement — everyone fell silent." },
-        { ukr: "Якщо ти продовжиш у тому ж дусі, ти обов'язково досягнеш успіху.",
-          correct: "If you continue in the same spirit, you will definitely succeed.",
-          wrong1: "If you continue, you are going to definitely succeed.",
-          wrong2: "If you continue, you definitely succeed." },
-        { ukr: "Мій брат збирається одружитися наступного літа.",
-          correct: "My brother is going to get married next summer.",
-          wrong1: "My brother will get married next summer.",
-          wrong2: "My brother gets married next summer." },
-        { ukr: "Вони ось-ось вийдуть із кімнати.",
-          correct: "They are about to leave the room.",
-          wrong1: "They will about to leave the room.",
-          wrong2: "They are going to leave the room." },
-        { ukr: "Я впевнений, що вона прийде на вечірку.",
-          correct: "I am sure she will come to the party.",
-          wrong1: "I am sure she is going to come to the party.",
-          wrong2: "I am sure she comes to the party." },
-        { ukr: "Ми ось-ось розпочнемо нараду.",
-          correct: "We are about to start the meeting.",
-          wrong1: "We will about to start the meeting.",
-          wrong2: "We are going to start the meeting." },
-        { ukr: "Вони збираються купити новий будинок.",
-          correct: "They are going to buy a new house.",
-          wrong1: "They will buy a new house.",
-          wrong2: "They buy a new house." },
-        { ukr: "Я зачекаю на тебе біля входу.",
-          correct: "I will wait for you at the entrance.",
-          wrong1: "I am going to wait for you at the entrance.",
-          wrong2: "I wait for you at the entrance." },
-        { ukr: "Сонце ось-ось зійде.",
-          correct: "The sun is about to rise.",
-          wrong1: "The sun will rise.",
-          wrong2: "The sun going to rise." },
-        { ukr: "Вона передумала і не збирається їхати.",
-          correct: "She changed her mind and is not going to leave.",
-          wrong1: "She changed her mind and will not leave.",
-          wrong2: "She changed her mind and does not leave." },
-        { ukr: "Фільм ось-ось почнеться, сідайте на свої місця.",
-          correct: "The movie is about to start, take your seats.",
-          wrong1: "The movie will start, take your seats.",
-          wrong2: "The movie is going start, take your seats." },
-        { ukr: "Я ніколи не здамся, я обіцяю.",
-          correct: "I will never give up, I promise.",
-          wrong1: "I am going to never give up, I promise.",
-          wrong2: "I never give up, I promise." }
+    const RAW_QUESTIONS = [
+        { ukr: "Не хвилюйся, я допоможу тобі підготувати презентацію.", correct: "Don't worry, I will help you prepare the presentation.", wrong1: "Don't worry, I am help you prepare the presentation.", wrong2: "Don't worry, I helping you prepare the presentation." },
+        { ukr: "Подивись на ці хмари! Зараз піде дощ.", correct: "Look at those clouds! It is going to rain.", wrong1: "Look at those clouds! It going to rain.", wrong2: "Look at those clouds! It will raining." },
+        { ukr: "Вчитель ось-ось почне онлайн-урок.", correct: "The teacher is about to start the online lesson.", wrong1: "The teacher about to start the online lesson.", wrong2: "The teacher will about start the online lesson." },
+        { ukr: "Я впевнений, що ти складеш цей іспит.", correct: "I'm sure you will pass this exam.", wrong1: "I'm sure you are pass this exam.", wrong2: "I'm sure you will passing this exam." },
+        { ukr: "Ми збираємося поїхати до гір на весняних канікулах.", correct: "We are going to go to the mountains during the spring holidays.", wrong1: "We going to go to the mountains during the spring holidays.", wrong2: "We are going go to the mountains during the spring holidays." },
+        { ukr: "Мій телефон ось-ось розрядиться.", correct: "My phone is about to run out of battery.", wrong1: "My phone about to run out of battery.", wrong2: "My phone will about run out of battery." },
+        { ukr: "Я замовлю піцу, якщо всі зголодніють.", correct: "I will order pizza if everyone gets hungry.", wrong1: "I am order pizza if everyone gets hungry.", wrong2: "I will ordering pizza if everyone gets hungry." },
+        { ukr: "Вона збирається вступати до університету за кордоном.", correct: "She is going to apply to a university abroad.", wrong1: "She going to apply to a university abroad.", wrong2: "She is going apply to a university abroad." },
+        { ukr: "Автобус ось-ось поїде.", correct: "The bus is about to leave.", wrong1: "The bus about to leave.", wrong2: "The bus will about leave." },
+        { ukr: "Я думаю, люди будуть більше користуватися електромобілями в майбутньому.", correct: "I think people will use electric cars more in the future.", wrong1: "I think people are use electric cars more in the future.", wrong2: "I think people will using electric cars more in the future." },
+        { ukr: "Ми збираємося створити блог про подорожі.", correct: "We are going to create a travel blog.", wrong1: "We going to create a travel blog.", wrong2: "We are create a travel blog." },
+        { ukr: "Вона ось-ось відправить тобі повідомлення.", correct: "She is about to send you a message.", wrong1: "She about to send you a message.", wrong2: "She will about send you a message." },
+        { ukr: "Я обіцяю, що не розповім нікому твій секрет.", correct: "I promise I will not tell anyone your secret.", wrong1: "I promise I not tell anyone your secret.", wrong2: "I promise I will telling anyone your secret." },
+        { ukr: "Подивись на рахунок! Ми збираємося витратити всі гроші.", correct: "Look at the bill! We are going to spend all our money.", wrong1: "Look at the bill! We going to spend all our money.", wrong2: "Look at the bill! We are spend all our money." },
+        { ukr: "Концерт ось-ось почнеться.", correct: "The concert is about to begin.", wrong1: "The concert about to begin.", wrong2: "The concert will about begin." },
+        { ukr: "Я відповім на твій коментар пізніше.", correct: "I will reply to your comment later.", wrong1: "I am reply to your comment later.", wrong2: "I will replying to your comment later." },
+        { ukr: "Вони збираються організувати екологічний проєкт у школі.", correct: "They are going to organise an environmental project at school.", wrong1: "They going to organise an environmental project at school.", wrong2: "They are organise an environmental project at school." },
+        { ukr: "Я ось-ось виграю цей рівень у грі.", correct: "I am about to win this level in the game.", wrong1: "I about to win this level in the game.", wrong2: "I will about win this level in the game." },
+        { ukr: "Думаю, твій новий канал стане популярним.", correct: "I think your new channel will become popular.", wrong1: "I think your new channel is become popular.", wrong2: "I think your new channel will becoming popular." },
+        { ukr: "Ми збираємося купити нові навушники для онлайн-уроків.", correct: "We are going to buy new headphones for online classes.", wrong1: "We going to buy new headphones for online classes.", wrong2: "We are buy new headphones for online classes." },
+        { ukr: "Літак ось-ось приземлиться.", correct: "The plane is about to land.", wrong1: "The plane about to land.", wrong2: "The plane will about land." },
+        { ukr: "Я допоможу тобі встановити цей додаток.", correct: "I will help you install this app.", wrong1: "I helping you install this app.", wrong2: "I am help you install this app." },
+        { ukr: "Вона збирається вивчати графічний дизайн після школи.", correct: "She is going to study graphic design after school.", wrong1: "She going to study graphic design after school.", wrong2: "She is study graphic design after school." },
+        { ukr: "Комп'ютер ось-ось вимкнеться.", correct: "The computer is about to shut down.", wrong1: "The computer about to shut down.", wrong2: "The computer will about shut down." },
+        { ukr: "Я впевнений, що наша команда виграє матч.", correct: "I'm sure our team will win the match.", wrong1: "I'm sure our team are win the match.", wrong2: "I'm sure our team will winning the match." },
+        { ukr: "Вони збираються знімати відео для соціальних мереж.", correct: "They are going to film a video for social media.", wrong1: "They going to film a video for social media.", wrong2: "They are film a video for social media." },
+        { ukr: "Я ось-ось натисну кнопку 'publish'.", correct: "I am about to press the 'publish' button.", wrong1: "I about to press the 'publish' button.", wrong2: "I will about press the 'publish' button." },
+        { ukr: "Якщо ти не поспішиш, ти запізнишся на потяг.", correct: "If you do not hurry up, you will miss the train.", wrong1: "If you do not hurry up, you are miss the train.", wrong2: "If you do not hurry up, you will missing the train." },
+        { ukr: "Ми збираємося провести вихідні біля озера.", correct: "We are going to spend the weekend by the lake.", wrong1: "We going to spend the weekend by the lake.", wrong2: "We are spend the weekend by the lake." },
+        { ukr: "Фільм ось-ось закінчиться.", correct: "The film is about to end.", wrong1: "The film about to end.", wrong2: "The film will about end." },
+        { ukr: "Я ніколи не забуду нашу поїздку до Берліна.", correct: "I will never forget our trip to Berlin.", wrong1: "I am never forget our trip to Berlin.", wrong2: "I will never forgetting our trip to Berlin." },
+        { ukr: "Вона збирається записатися на курси програмування.", correct: "She is going to sign up for programming courses.", wrong1: "She going to sign up for programming courses.", wrong2: "She is sign up for programming courses." }
     ];
 
-    let shuffledQuestions = [];
+    let questions = [];
     let currentIndex = 0;
-    let answeredCounter = 0;
+    let answeredCount = 0;
     let score = 0;
     let answerLock = false;
     let currentQuestionObj = null;
@@ -444,10 +348,11 @@
     }
 
     function initQuestions() {
-        shuffledQuestions = shuffleArray([...QUESTIONS]);
+        questions = shuffleArray([...RAW_QUESTIONS]);
         currentIndex = 0;
-        answeredCounter = 0;
+        answeredCount = 0;
         score = 0;
+        answerLock = false;
     }
 
     function shuffleOptions(correct, wrong1, wrong2) {
@@ -497,7 +402,7 @@
         highlightChoices(selectedIdx, correctIdx, isAnswerCorrect);
         disableOptions(true);
         nextButton.disabled = false;
-        answeredCounter++;
+        answeredCount = currentIndex + 1;
         updateProgressAndLabel();
     }
 
@@ -531,18 +436,19 @@
     }
 
     function updateProgressAndLabel() {
-        const percent = ((currentIndex + (answerLock ? 1 : 0)) / shuffledQuestions.length) * 100;
+        const shown = currentIndex;
+        const total = questions.length;
+        const percent = (shown / total) * 100;
         progressFill.style.width = `${percent}%`;
-        const displayedIndex = currentIndex + (answerLock ? 1 : 0);
-        levelSpan.innerText = `question ${displayedIndex} of ${shuffledQuestions.length}`;
+        levelSpan.innerText = `question ${shown} of ${total} · B1+ / B2`;
     }
 
     function loadQuestion() {
-        if (currentIndex >= shuffledQuestions.length) {
+        if (currentIndex >= questions.length) {
             finishTest();
             return;
         }
-        currentQuestionObj = shuffledQuestions[currentIndex];
+        currentQuestionObj = questions[currentIndex];
         const { optsList, correctIdx } = shuffleOptions(
             currentQuestionObj.correct,
             currentQuestionObj.wrong1,
@@ -571,16 +477,18 @@
         answerLock = true;
         disableOptions(true);
         nextButton.disabled = true;
+        const total = questions.length;
         ukrSpan.innerText = "test completed — summary";
         optionsDiv.innerHTML = `<div style="background:#fefaf5; border:1px solid #e4e9ef; padding: 1.8rem; text-align:center; margin-top:10px;">
             <strong>final result</strong><br>
-            total questions: ${shuffledQuestions.length}<br>
+            total questions: ${total}<br>
             correct answers: ${score}<br>
-            thank you for training will / going to / about to.
+            thank you for training will / going to / about to.<br>
+            <span style="font-size:0.8rem;">High Note 3 · B1+ / B2 level</span>
             </div>`;
         feedbackDiv.innerText = "";
         progressFill.style.width = "100%";
-        levelSpan.innerText = "completed";
+        levelSpan.innerText = "completed · B1+";
     }
 
     function resetGame() {
