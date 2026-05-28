@@ -261,7 +261,7 @@
         <h1>10-A English · future constructions</h1>
         <p>will / be going to / be about to — Ukrainian to English translation</p>
         <div class="wiki-stats">
-            <span class="difficulty-badge" id="levelLabel">explorer</span>
+            <span class="difficulty-badge" id="levelLabel">dynamic generator</span>
             <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
         </div>
     </div>
@@ -280,116 +280,16 @@
             <button class="wiki-btn wiki-btn-finish" id="finishBtn">finalise test</button>
         </div>
         <button class="wiki-btn wiki-btn-reset" id="resetBtn">restart session</button>
-        <footer>prepared by lyceum student: Reshetnyk Emmanuel</footer>
+        <footer>prepared by lyceum student: Reshetnyk Emmanuel | dynamically generated questions</footer>
     </div>
 </div>
 
 <script>
 (function(){
-    const FULL_BANK = [
-        { ukr: "Я зателефоную тобі завтра, навіть якщо буде пізно.",
-          correct: "I will call you tomorrow even if it is late.",
-          wrong1: "I am going to call you tomorrow even if it is late.",
-          wrong2: "I call you tomorrow even if it is late." },
-        { ukr: "Вона збирається відкрити власну справу наступного місяця.",
-          correct: "She is going to open her own business next month.",
-          wrong1: "She will open her own business next month.",
-          wrong2: "She going to open her own business next month." },
-        { ukr: "Автобус ось-ось від'їде, поспішай!",
-          correct: "The bus is about to leave, hurry up!",
-          wrong1: "The bus will about to leave, hurry up!",
-          wrong2: "The bus is going to leave, hurry up!" },
-        { ukr: "Обіцяю, я більше ніколи не приховуватиму правду.",
-          correct: "I promise I will never hide the truth again.",
-          wrong1: "I promise I am going to never hide the truth again.",
-          wrong2: "I promise I never hide the truth again." },
-        { ukr: "Подивись на ті хмари — зараз буде злива.",
-          correct: "Look at those clouds — it is going to pour.",
-          wrong1: "Look at those clouds — it will pour.",
-          wrong2: "Look at those clouds — it about to pour." },
-        { ukr: "Він ось-ось втратить свідомість, викличте лікаря!",
-          correct: "He is about to lose consciousness, call a doctor!",
-          wrong1: "He will about to lose consciousness, call a doctor!",
-          wrong2: "He is going to lose consciousness, call a doctor!" },
-        { ukr: "Я думаю, завтрашня зустріч буде скасована.",
-          correct: "I think tomorrow's meeting will be canceled.",
-          wrong1: "I think tomorrow's meeting is going to be canceled.",
-          wrong2: "I think tomorrow's meeting be canceled." },
-        { ukr: "Ми збираємося реконструювати міст наступного року.",
-          correct: "We are going to reconstruct the bridge next year.",
-          wrong1: "We will reconstruct the bridge next year.",
-          wrong2: "We are to reconstruct the bridge next year." },
-        { ukr: "Потяг ось-ось прибуде на перон, займіть місця.",
-          correct: "The train is about to arrive at the platform, take your seats.",
-          wrong1: "The train will about to arrive at the platform.",
-          wrong2: "The train is going to arrive at the platform." },
-        { ukr: "Телефон дзвонить! Я відповім.",
-          correct: "The phone is ringing! I will answer it.",
-          wrong1: "The phone is ringing! I am going to answer it.",
-          wrong2: "The phone is ringing! I answer it." },
-        { ukr: "Незважаючи на попередження, вона все одно збирається подорожувати сама.",
-          correct: "Despite the warnings, she is still going to travel alone.",
-          wrong1: "Despite the warnings, she will still travel alone.",
-          wrong2: "Despite the warnings, she is about travel alone." },
-        { ukr: "Вони ось-ось підпишуть контракт — фінальні деталі.",
-          correct: "They are about to sign the contract — final details.",
-          wrong1: "They will about to sign the contract — final details.",
-          wrong2: "They are going to sign the contract — final details." },
-        { ukr: "Якщо ти не припиниш, я піду геть.",
-          correct: "If you don't stop, I will leave.",
-          wrong1: "If you don't stop, I am going to leave.",
-          wrong2: "If you don't stop, I leave." },
-        { ukr: "Це неймовірно! Вона збирається заспівати на сцені вперше.",
-          correct: "This is incredible! She is going to sing on stage for the first time.",
-          wrong1: "This is incredible! She will sing on stage for the first time.",
-          wrong2: "This is incredible! She is about sing on stage." },
-        { ukr: "Дощ ось-ось почнеться, відчувається вологість.",
-          correct: "The rain is about to start, the humidity is felt.",
-          wrong1: "The rain will start, the humidity is felt.",
-          wrong2: "The rain is going start, the humidity is felt." },
-        { ukr: "Я переконаний, що вони виграють турнір.",
-          correct: "I am convinced they will win the tournament.",
-          wrong1: "I am convinced they are going to win the tournament.",
-          wrong2: "I am convinced they win the tournament." },
-        { ukr: "Він збирається покинути роботу, бо знайшов кращу пропозицію.",
-          correct: "He is going to quit the job because he found a better offer.",
-          wrong1: "He will quit the job because he found a better offer.",
-          wrong2: "He is about quit the job because he found a better offer." },
-        { ukr: "Увага! Вибухівка ось-ось детонує.",
-          correct: "Attention! The explosive is about to detonate.",
-          wrong1: "Attention! The explosive will detonate.",
-          wrong2: "Attention! The explosive going to detonate." },
-        { ukr: "Обіцяю, що повернуся до світанку.",
-          correct: "I promise I will return by dawn.",
-          wrong1: "I promise I am going to return by dawn.",
-          wrong2: "I promise I return by dawn." },
-        { ukr: "Згідно з прогнозом, температура підніметься вище 30° завтра.",
-          correct: "According to the forecast, the temperature will rise above 30° tomorrow.",
-          wrong1: "According to the forecast, the temperature is going to rise above 30° tomorrow.",
-          wrong2: "According to the forecast, the temperature rises above 30° tomorrow." },
-        { ukr: "Вона ось-ось оприлюднить важливу заяву — всі замовкли.",
-          correct: "She is about to make an important statement — everyone fell silent.",
-          wrong1: "She will about to make an important statement.",
-          wrong2: "She is going to make an important statement — everyone fell silent." },
-        { ukr: "Якщо ти продовжиш у тому ж дусі, ти досягнеш успіху.",
-          correct: "If you continue in the same spirit, you will succeed.",
-          wrong1: "If you continue, you are going to succeed.",
-          wrong2: "If you continue, you succeed." }
-    ];
-
-    function shuffleArray(arr) {
-        for (let i = arr.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [arr[i], arr[j]] = [arr[j], arr[i]];
-        }
-        return arr;
-    }
-
-    let pendingPool = [];
     let answeredCounter = 0;
     let score = 0;
     let answerLock = false;
-    let currentQuestion = null;
+    let currentQuestionData = null;
     let currentOptions = [];
     let currentCorrectIndex = -1;
 
@@ -402,27 +302,227 @@
     const levelSpan = document.getElementById("levelLabel");
     const progressFill = document.getElementById("progressFill");
 
-    function rebuildPool() {
-        const fresh = shuffleArray([...FULL_BANK]);
-        pendingPool = fresh.map((q, idx) => ({ ...q, uid: idx + Math.random() }));
+    const subjects = {
+        masculine: ["я", "ти", "він", "ми", "вони", "хтось", "ніхто"],
+        feminine: ["вона", "моя сестра", "подруга", "жінка", "мати"],
+        neutral: ["воно", "місто", "життя", "все"],
+        plural: ["вони", "ми", "ви", "друзі", "люди", "студенти"]
+    };
+
+    const verbs = {
+        action: ["подзвонити", "сказати", "зробити", "почати", "завершити", "відкрити", "покинути", "прийти", "піти"],
+        process: ["працювати", "навчатися", "будувати", "створювати", "вивчати", "підготувати"],
+        movement: ["приїхати", "полетіти", "вийти", "увійти", "повернутися"]
+    };
+
+    const objects = ["роботу", "проєкт", "зустріч", "контракт", "презентацію", "екзамен", "подорож", "справу"];
+    const timeMarkers = ["завтра", "наступного тижня", "сьогодні ввечері", "через годину", "наступного місяця", "скоро"];
+    const conditions = ["навіть якщо буде пізно", "незважаючи на труднощі", "якщо нічого не зміниться", "попри попередження"];
+    const promises = ["обіцяю", "запевняю", "даю слово", "точно"];
+    const predictions = ["я думаю", "я впевнений", "схоже", "мабуть", "згідно з прогнозом"];
+
+    function randomItem(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
     }
 
-    function getNextUnique() {
-        if (pendingPool.length === 0) {
-            const nextCycle = shuffleArray([...FULL_BANK]);
-            pendingPool = nextCycle.map((q, idx) => ({ ...q, uid: idx + Date.now() + Math.random() }));
+    function capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function generateUkrainianSentence() {
+        const pattern = Math.floor(Math.random() * 12);
+        let subject = randomItem([...subjects.masculine, ...subjects.feminine, ...subjects.plural]);
+        let verb = randomItem([...verbs.action, ...verbs.process, ...verbs.movement]);
+        let obj = randomItem(objects);
+        let time = randomItem(timeMarkers);
+        let condition = randomItem(conditions);
+        let promise = randomItem(promises);
+        let prediction = randomItem(predictions);
+
+        if (pattern === 0) {
+            return `${capitalize(subject)} ${verb} ${obj} ${time}.`;
+        } else if (pattern === 1) {
+            return `${capitalize(prediction)}, ${subject} ${verb} ${obj} ${time}.`;
+        } else if (pattern === 2) {
+            return `${capitalize(promise)}, ${subject} ${verb} ${obj} ${time}.`;
+        } else if (pattern === 3) {
+            return `${capitalize(subject)} ${verb} ${obj} ${time}, ${condition}.`;
+        } else if (pattern === 4) {
+            return `${capitalize(subject)} збирається ${verb} ${obj} ${time}.`;
+        } else if (pattern === 5) {
+            return `${capitalize(subject)} ось-ось ${verb} ${obj}.`;
+        } else if (pattern === 6) {
+            return `Подивись! ${capitalize(subject)} ${verb} ${obj} ${time}.`;
+        } else if (pattern === 7) {
+            return `Телефон дзвонить! Я ${verb} ${time}.`;
+        } else if (pattern === 8) {
+            return `Якщо ти не зупинишся, я ${verb} геть.`;
+        } else if (pattern === 9) {
+            return `${capitalize(subject)} має намір ${verb} ${obj} ${time}.`;
+        } else if (pattern === 10) {
+            return `Увага! ${capitalize(obj)} ось-ось ${verb}.`;
+        } else {
+            return `${capitalize(subject)} ${verb} ${obj} ${time} — це вирішено.`;
         }
-        return pendingPool.shift();
     }
 
-    function shuffleOptions(correct, w1, w2) {
-        let opts = [correct, w1, w2];
-        for (let i = opts.length - 1; i > 0; i--) {
+    function getStructureType(ukrSentence) {
+        const lower = ukrSentence.toLowerCase();
+        if (lower.includes("збирається")) return "going";
+        if (lower.includes("ось-ось")) return "about";
+        if (lower.includes("дзвонить")) return "spontaneous";
+        if (lower.includes("обіцяю") || lower.includes("запевняю")) return "promise";
+        if (lower.includes("я думаю") || lower.includes("я впевнений")) return "prediction";
+        if (lower.includes("якщо") && lower.includes("піду")) return "threat";
+        if (lower.includes("подивись")) return "evidence";
+        return "neutral";
+    }
+
+    function extractVerbAndObject(ukrSentence) {
+        const words = ukrSentence.split(" ");
+        let verb = "зробити";
+        let obj = "це";
+        for (let w of words) {
+            if (verbs.action.includes(w) || verbs.process.includes(w) || verbs.movement.includes(w)) {
+                verb = w;
+            }
+            if (objects.some(o => w.includes(o))) {
+                obj = w;
+            }
+        }
+        return { verb, obj };
+    }
+
+    function generateCorrectEnglish(ukrSentence) {
+        const lower = ukrSentence.toLowerCase();
+        const { verb, obj } = extractVerbAndObject(ukrSentence);
+        const type = getStructureType(ukrSentence);
+        let verbBase = verb;
+        if (verbBase.endsWith("ти")) verbBase = verbBase.slice(0, -2);
+        if (verbBase === "подзвони") verbBase = "call";
+        if (verbBase === "сказа") verbBase = "say";
+        if (verbBase === "зроби") verbBase = "do";
+        if (verbBase === "поча") verbBase = "start";
+        if (verbBase === "заверши") verbBase = "finish";
+        if (verbBase === "відкри") verbBase = "open";
+        if (verbBase === "покину") verbBase = "leave";
+        if (verbBase === "прий") verbBase = "come";
+        if (verbBase === "пі") verbBase = "go";
+        if (verbBase === "працюва") verbBase = "work";
+        if (verbBase === "навча") verbBase = "study";
+        if (verbBase === "будува") verbBase = "build";
+        if (verbBase === "вивча") verbBase = "learn";
+        if (verbBase === "підготува") verbBase = "prepare";
+        if (verbBase === "приїха") verbBase = "arrive";
+        if (verbBase === "полеті") verbBase = "fly";
+        if (verbBase === "вий") verbBase = "go out";
+        if (verbBase === "увій") verbBase = "enter";
+        if (verbBase === "поверну") verbBase = "return";
+
+        let subject = "I";
+        if (lower.includes("він")) subject = "he";
+        if (lower.includes("вона")) subject = "she";
+        if (lower.includes("воно")) subject = "it";
+        if (lower.includes("ми")) subject = "we";
+        if (lower.includes("вони")) subject = "they";
+        if (lower.includes("ти")) subject = "you";
+        if (lower.includes("моя сестра")) subject = "my sister";
+        if (lower.includes("друзі")) subject = "friends";
+        if (lower.includes("люди")) subject = "people";
+        if (lower.includes("студенти")) subject = "students";
+        if (lower.includes("місто")) subject = "the city";
+        if (lower.includes("життя")) subject = "life";
+
+        if (type === "going") {
+            if (subject === "I") return `I am going to ${verbBase} ${obj}`;
+            if (subject === "you") return `You are going to ${verbBase} ${obj}`;
+            if (subject === "he" || subject === "she" || subject === "it") return `${capitalize(subject)} is going to ${verbBase} ${obj}`;
+            return `${capitalize(subject)} are going to ${verbBase} ${obj}`;
+        }
+        if (type === "about") {
+            if (subject === "I") return `I am about to ${verbBase} ${obj}`;
+            if (subject === "you") return `You are about to ${verbBase} ${obj}`;
+            if (subject === "he" || subject === "she" || subject === "it") return `${capitalize(subject)} is about to ${verbBase} ${obj}`;
+            return `${capitalize(subject)} are about to ${verbBase} ${obj}`;
+        }
+        if (type === "spontaneous") {
+            return `I will answer it`;
+        }
+        if (type === "promise") {
+            return `I promise I will ${verbBase} ${obj}`;
+        }
+        if (type === "threat") {
+            return `I will leave`;
+        }
+        if (type === "evidence") {
+            return `it is going to ${verbBase}`;
+        }
+        if (type === "prediction") {
+            return `I think it will ${verbBase}`;
+        }
+        if (lower.includes("завтра")) {
+            return `${capitalize(subject)} will ${verbBase} ${obj} tomorrow`;
+        }
+        if (lower.includes("next")) {
+            return `${capitalize(subject)} is going to ${verbBase} ${obj} next week`;
+        }
+        return `${capitalize(subject)} will ${verbBase} ${obj}`;
+    }
+
+    function generateWrongOptions(correctEnglish, ukrSentence) {
+        const lower = ukrSentence.toLowerCase();
+        const type = getStructureType(ukrSentence);
+        const wrongs = [];
+        
+        if (type === "going") {
+            wrongs.push(correctEnglish.replace(/am going to|are going to|is going to/g, "will"));
+            wrongs.push(correctEnglish.replace(/am going to|are going to|is going to/g, "").replace("  ", " "));
+        } else if (type === "about") {
+            wrongs.push(correctEnglish.replace(/am about to|are about to|is about to/g, "will"));
+            wrongs.push(correctEnglish.replace(/about to/g, "going to"));
+        } else if (type === "spontaneous") {
+            wrongs.push("I am going to answer it");
+            wrongs.push("I answer it");
+        } else if (type === "promise") {
+            wrongs.push(correctEnglish.replace("will", "am going to"));
+            wrongs.push(correctEnglish.replace("I will", "I"));
+        } else if (type === "threat") {
+            wrongs.push("I am going to leave");
+            wrongs.push("I leave");
+        } else if (type === "evidence") {
+            wrongs.push(correctEnglish.replace("is going to", "will"));
+            wrongs.push(correctEnglish.replace("is going to", "about to"));
+        } else {
+            wrongs.push(correctEnglish.replace("will", "am going to"));
+            wrongs.push(correctEnglish.replace(/will \w+/, "").replace("  ", " "));
+        }
+        
+        if (wrongs.length < 2) {
+            wrongs.push(correctEnglish.replace(/\b\w+\b/, "maybe") + " soon");
+            wrongs.push(correctEnglish + " later");
+        }
+        
+        return wrongs.slice(0, 2);
+    }
+
+    function generateCompleteQuestion() {
+        const ukrSentence = generateUkrainianSentence();
+        const correctEng = generateCorrectEnglish(ukrSentence);
+        const wrongs = generateWrongOptions(correctEng, ukrSentence);
+        
+        let options = [correctEng, wrongs[0], wrongs[1]];
+        for (let i = options.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [opts[i], opts[j]] = [opts[j], opts[i]];
+            [options[i], options[j]] = [options[j], options[i]];
         }
-        const correctIdx = opts.findIndex(opt => opt === correct);
-        return { optsList: opts, correctIdx };
+        const correctIndex = options.findIndex(opt => opt === correctEng);
+        
+        return {
+            ukr: capitalize(ukrSentence),
+            options: options,
+            correctIndex: correctIndex,
+            correctAnswer: correctEng
+        };
     }
 
     function renderOptions(opts, correctIdx) {
@@ -500,19 +600,16 @@
         let percent = Math.min(100, (totalShown % 20) * 5);
         if (totalShown < 20) percent = (totalShown / 20) * 100;
         progressFill.style.width = `${percent}%`;
-        if (totalShown < 7) levelSpan.innerText = "explorer · similar traps";
-        else if (totalShown < 14) levelSpan.innerText = "adept · grammar focus";
-        else levelSpan.innerText = "master · expert nuances";
+        if (totalShown < 7) levelSpan.innerText = "explorer · generated questions";
+        else if (totalShown < 14) levelSpan.innerText = "adept · dynamic patterns";
+        else levelSpan.innerText = "master · infinite variety";
     }
 
     function loadQuestion() {
-        const q = getNextUnique();
-        if (!q) return;
-        currentQuestion = q;
-        const { optsList, correctIdx } = shuffleOptions(q.correct, q.wrong1, q.wrong2);
-        currentOptions = optsList;
-        currentCorrectIndex = correctIdx;
-        ukrSpan.innerText = q.ukr;
+        currentQuestionData = generateCompleteQuestion();
+        currentOptions = currentQuestionData.options;
+        currentCorrectIndex = currentQuestionData.correctIndex;
+        ukrSpan.innerText = currentQuestionData.ukr;
         renderOptions(currentOptions, currentCorrectIndex);
         answerLock = false;
         nextButton.disabled = true;
@@ -543,7 +640,6 @@
     }
 
     function resetGame() {
-        rebuildPool();
         answeredCounter = 0;
         score = 0;
         answerLock = false;
@@ -555,7 +651,6 @@
         disableOptions(false);
     }
 
-    rebuildPool();
     loadQuestion();
     updateProgressAndLabel();
 
