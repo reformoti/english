@@ -19,7 +19,6 @@
             color: #1e2f3a;
         }
 
-        /* main container — wiki-like box */
         .wikibox {
             max-width: 900px;
             margin: 0 auto;
@@ -28,15 +27,14 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             border: 1px solid #d0d5da;
             overflow: hidden;
-            transition: all 0.2s;
         }
 
-        /* header with warm / flesh & blue tones */
         .wiki-header {
             background: #f5f9ff;
             border-bottom: 1px solid #dce3ec;
             padding: 1.3rem 2rem;
         }
+
         .wiki-header h1 {
             font-size: 1.9rem;
             font-weight: normal;
@@ -45,10 +43,12 @@
             letter-spacing: -0.2px;
             margin-bottom: 6px;
         }
+
         .wiki-header p {
             font-size: 0.85rem;
             color: #6f7e8c;
         }
+
         .wiki-stats {
             display: flex;
             justify-content: space-between;
@@ -57,6 +57,7 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+
         .difficulty-badge {
             background: #fef3e4;
             border: 1px solid #f0d5b0;
@@ -66,6 +67,7 @@
             color: #b47c44;
             font-family: sans-serif;
         }
+
         .progress-track {
             flex: 1;
             min-width: 140px;
@@ -74,6 +76,7 @@
             border-radius: 6px;
             overflow: hidden;
         }
+
         .progress-fill {
             background: #6ba5b8;
             width: 0%;
@@ -81,19 +84,18 @@
             transition: width 0.2s ease;
         }
 
-        /* content */
         .wiki-content {
             padding: 2rem 2rem 1.8rem;
             background: #ffffff;
         }
 
-        /* question card — clean */
         .question-card {
             background: #fefcf8;
             border: 1px solid #e2e6ea;
             padding: 1.4rem 1.6rem;
             margin-bottom: 1.8rem;
         }
+
         .question-label {
             font-size: 0.7rem;
             text-transform: uppercase;
@@ -105,6 +107,7 @@
             padding-bottom: 4px;
             margin-bottom: 14px;
         }
+
         .ukr-text {
             font-size: 1.9rem;
             font-weight: 500;
@@ -114,6 +117,7 @@
             padding: 0.4rem 0.1rem;
             font-family: 'Georgia', 'Times New Roman', serif;
         }
+
         .extra-hint {
             font-size: 0.7rem;
             color: #b0aa8f;
@@ -121,13 +125,13 @@
             font-style: italic;
         }
 
-        /* options list */
         .options-area {
             display: flex;
             flex-direction: column;
             gap: 10px;
             margin: 22px 0 18px;
         }
+
         .option-item {
             background: #ffffff;
             border: 1px solid #cfd9e2;
@@ -138,11 +142,13 @@
             cursor: pointer;
             transition: all 0.12s linear;
         }
+
         .option-item:hover:not(.opt-disabled) {
             background-color: #f3f9fe;
             border-color: #8fbbd0;
             transform: translateX(2px);
         }
+
         .option-letter {
             font-weight: 600;
             color: #54809b;
@@ -155,12 +161,12 @@
             border-radius: 2px;
             font-size: 0.9rem;
         }
+
         .option-english {
             font-size: 0.95rem;
             color: #2f4858;
         }
 
-        /* feedback */
         .feedback-block {
             margin: 12px 0 20px;
             padding: 10px 16px;
@@ -169,24 +175,26 @@
             background: #fafbfd;
             color: #3d5f70;
         }
+
         .feedback-correct {
             border-left-color: #5fae8b;
             background: #effaf4;
             color: #2a6e54;
         }
+
         .feedback-wrong {
             border-left-color: #e09d7c;
             background: #fef5f0;
             color: #bc694b;
         }
 
-        /* button group */
         .button-row {
             display: flex;
             gap: 14px;
             margin: 10px 0 12px;
             flex-wrap: wrap;
         }
+
         .wiki-btn {
             background: #f8fafc;
             border: 1px solid #b9c2cc;
@@ -198,26 +206,31 @@
             color: #386a7c;
             transition: 0.08s linear;
         }
+
         .wiki-btn-primary {
             background: #eef4fc;
             border-color: #8faec9;
             flex: 2;
         }
+
         .wiki-btn-primary:active {
             background: #e2ecf7;
         }
+
         .wiki-btn-primary:disabled {
             background: #eceff3;
             border-color: #c2cad2;
             color: #8696a4;
             cursor: default;
         }
+
         .wiki-btn-finish {
             background: #fef3e8;
             border-color: #e2bf94;
             color: #ad7a48;
             flex: 1;
         }
+
         .wiki-btn-reset {
             background: #ffffff;
             border-color: #cbd3db;
@@ -225,6 +238,7 @@
             width: 100%;
             margin-top: 8px;
         }
+
         footer {
             font-size: 0.7rem;
             color: #a7b2bc;
@@ -233,13 +247,11 @@
             padding-top: 14px;
             text-align: center;
         }
+
         @media (max-width: 650px) {
             .wiki-content { padding: 1rem; }
             .ukr-text { font-size: 1.4rem; }
             .option-item { padding: 8px 14px; }
-        }
-        .hidden-stat {
-            display: none;
         }
     </style>
 </head>
@@ -256,8 +268,8 @@
     <div class="wiki-content">
         <div class="question-card">
             <div class="question-label">source phrase (ukrainian)</div>
-            <div class="ukr-text" id="ukrPhrase">завантаження...</div>
-            <div class="extra-hint">✧ choose the only grammatically flawless translation ✧</div>
+            <div class="ukr-text" id="ukrPhrase">loading...</div>
+            <div class="extra-hint">choose the only grammatically flawless translation</div>
         </div>
 
         <div class="options-area" id="optionsList"></div>
@@ -267,297 +279,290 @@
             <button class="wiki-btn wiki-btn-primary" id="nextBtn" disabled>next challenge</button>
             <button class="wiki-btn wiki-btn-finish" id="finishBtn">finalise test</button>
         </div>
-        <button class="wiki-btn wiki-btn-reset" id="resetBtn">⟳ restart session</button>
-        <footer>prepared by lyceum student: Reshetnyk Emmanuel | no repetition · evolving difficulty</footer>
+        <button class="wiki-btn wiki-btn-reset" id="resetBtn">restart session</button>
+        <footer>prepared by lyceum student: Reshetnyk Emmanuel</footer>
     </div>
 </div>
 
 <script>
-    (function(){
-        // ------------------------------------------------------------------
-        // 10-A English: QUESTION BANK with grammatical traps and nuanced distractors
-        // Each wrong option is very close to correct but contains a subtle mistake
-        // ------------------------------------------------------------------
-        const FULL_BANK = [
-            { ukr: "Я зателефоную тобі завтра, навіть якщо буде пізно.",
-              correct: "I will call you tomorrow even if it is late.",
-              wrong1: "I am going to call you tomorrow even if it is late.",
-              wrong2: "I call you tomorrow even if it is late." },
-            { ukr: "Вона збирається відкрити власну справу наступного місяця.",
-              correct: "She is going to open her own business next month.",
-              wrong1: "She will open her own business next month.",
-              wrong2: "She going to open her own business next month." },
-            { ukr: "Автобус ось-ось від'їде, поспішай!",
-              correct: "The bus is about to leave, hurry up!",
-              wrong1: "The bus will about to leave, hurry up!",
-              wrong2: "The bus is going to leave, hurry up!" },
-            { ukr: "Обіцяю, я більше ніколи не приховуватиму правду.",
-              correct: "I promise I will never hide the truth again.",
-              wrong1: "I promise I am going to never hide the truth again.",
-              wrong2: "I promise I never hide the truth again." },
-            { ukr: "Подивись на ті хмари — зараз буде злива.",
-              correct: "Look at those clouds — it is going to pour.",
-              wrong1: "Look at those clouds — it will pour.",
-              wrong2: "Look at those clouds — it about to pour." },
-            { ukr: "Він ось-ось втратить свідомість, викличте лікаря!",
-              correct: "He is about to lose consciousness, call a doctor!",
-              wrong1: "He will about to lose consciousness, call a doctor!",
-              wrong2: "He is going to lose consciousness, call a doctor!" },
-            { ukr: "Я думаю, завтрашня зустріч буде скасована.",
-              correct: "I think tomorrow's meeting will be canceled.",
-              wrong1: "I think tomorrow's meeting is going to be canceled.",
-              wrong2: "I think tomorrow's meeting be canceled." },
-            { ukr: "Ми збираємося реконструювати міст наступного року.",
-              correct: "We are going to reconstruct the bridge next year.",
-              wrong1: "We will reconstruct the bridge next year.",
-              wrong2: "We are to reconstruct the bridge next year." },
-            { ukr: "Потяг ось-ось прибуде на перон, займіть місця.",
-              correct: "The train is about to arrive at the platform, take your seats.",
-              wrong1: "The train will about to arrive at the platform.",
-              wrong2: "The train is going to arrive at the platform." },
-            { ukr: "Телефон дзвонить! Я відповім.",
-              correct: "The phone is ringing! I will answer it.",
-              wrong1: "The phone is ringing! I am going to answer it.",
-              wrong2: "The phone is ringing! I answer it." },
-            { ukr: "Незважаючи на попередження, вона все одно збирається подорожувати сама.",
-              correct: "Despite the warnings, she is still going to travel alone.",
-              wrong1: "Despite the warnings, she will still travel alone.",
-              wrong2: "Despite the warnings, she is about travel alone." },
-            { ukr: "Вони ось-ось підпишуть контракт — фінальні деталі.",
-              correct: "They are about to sign the contract — final details.",
-              wrong1: "They will about to sign the contract — final details.",
-              wrong2: "They are going to sign the contract — final details." },
-            { ukr: "Якщо ти не припиниш, я піду геть.",
-              correct: "If you don't stop, I will leave.",
-              wrong1: "If you don't stop, I am going to leave.",
-              wrong2: "If you don't stop, I leave." },
-            { ukr: "Це неймовірно! Вона збирається заспівати на сцені вперше.",
-              correct: "This is incredible! She is going to sing on stage for the first time.",
-              wrong1: "This is incredible! She will sing on stage for the first time.",
-              wrong2: "This is incredible! She is about sing on stage." },
-            { ukr: "Дощ ось-ось почнеться, відчувається вологість.",
-              correct: "The rain is about to start, the humidity is felt.",
-              wrong1: "The rain will start, the humidity is felt.",
-              wrong2: "The rain is going start, the humidity is felt." },
-            { ukr: "Я переконаний, що вони виграють турнір.",
-              correct: "I am convinced they will win the tournament.",
-              wrong1: "I am convinced they are going to win the tournament.",
-              wrong2: "I am convinced they win the tournament." },
-            { ukr: "Він збирається покинути роботу, бо знайшов кращу пропозицію.",
-              correct: "He is going to quit the job because he found a better offer.",
-              wrong1: "He will quit the job because he found a better offer.",
-              wrong2: "He is about quit the job because he found a better offer." },
-            { ukr: "Увага! Вибухівка ось-ось детонує.",
-              correct: "Attention! The explosive is about to detonate.",
-              wrong1: "Attention! The explosive will detonate.",
-              wrong2: "Attention! The explosive going to detonate." },
-            { ukr: "Обіцяю, що повернуся до світанку.",
-              correct: "I promise I will return by dawn.",
-              wrong1: "I promise I am going to return by dawn.",
-              wrong2: "I promise I return by dawn." },
-            { ukr: "Згідно з прогнозом, температура підніметься вище 30° завтра.",
-              correct: "According to the forecast, the temperature will rise above 30° tomorrow.",
-              wrong1: "According to the forecast, the temperature is going to rise above 30° tomorrow.",
-              wrong2: "According to the forecast, the temperature rises above 30° tomorrow." },
-            { ukr: "Вона ось-ось оприлюднить важливу заяву — всі замовкли.",
-              correct: "She is about to make an important statement — everyone fell silent.",
-              wrong1: "She will about to make an important statement.",
-              wrong2: "She is going to make an important statement — everyone fell silent." },
-            { ukr: "Якщо ти продовжиш у тому ж дусі, ти досягнеш успіху.",
-              correct: "If you continue in the same spirit, you will succeed.",
-              wrong1: "If you continue, you are going to succeed.",
-              wrong2: "If you continue, you succeed." }
-        ];
+(function(){
+    const FULL_BANK = [
+        { ukr: "Я зателефоную тобі завтра, навіть якщо буде пізно.",
+          correct: "I will call you tomorrow even if it is late.",
+          wrong1: "I am going to call you tomorrow even if it is late.",
+          wrong2: "I call you tomorrow even if it is late." },
+        { ukr: "Вона збирається відкрити власну справу наступного місяця.",
+          correct: "She is going to open her own business next month.",
+          wrong1: "She will open her own business next month.",
+          wrong2: "She going to open her own business next month." },
+        { ukr: "Автобус ось-ось від'їде, поспішай!",
+          correct: "The bus is about to leave, hurry up!",
+          wrong1: "The bus will about to leave, hurry up!",
+          wrong2: "The bus is going to leave, hurry up!" },
+        { ukr: "Обіцяю, я більше ніколи не приховуватиму правду.",
+          correct: "I promise I will never hide the truth again.",
+          wrong1: "I promise I am going to never hide the truth again.",
+          wrong2: "I promise I never hide the truth again." },
+        { ukr: "Подивись на ті хмари — зараз буде злива.",
+          correct: "Look at those clouds — it is going to pour.",
+          wrong1: "Look at those clouds — it will pour.",
+          wrong2: "Look at those clouds — it about to pour." },
+        { ukr: "Він ось-ось втратить свідомість, викличте лікаря!",
+          correct: "He is about to lose consciousness, call a doctor!",
+          wrong1: "He will about to lose consciousness, call a doctor!",
+          wrong2: "He is going to lose consciousness, call a doctor!" },
+        { ukr: "Я думаю, завтрашня зустріч буде скасована.",
+          correct: "I think tomorrow's meeting will be canceled.",
+          wrong1: "I think tomorrow's meeting is going to be canceled.",
+          wrong2: "I think tomorrow's meeting be canceled." },
+        { ukr: "Ми збираємося реконструювати міст наступного року.",
+          correct: "We are going to reconstruct the bridge next year.",
+          wrong1: "We will reconstruct the bridge next year.",
+          wrong2: "We are to reconstruct the bridge next year." },
+        { ukr: "Потяг ось-ось прибуде на перон, займіть місця.",
+          correct: "The train is about to arrive at the platform, take your seats.",
+          wrong1: "The train will about to arrive at the platform.",
+          wrong2: "The train is going to arrive at the platform." },
+        { ukr: "Телефон дзвонить! Я відповім.",
+          correct: "The phone is ringing! I will answer it.",
+          wrong1: "The phone is ringing! I am going to answer it.",
+          wrong2: "The phone is ringing! I answer it." },
+        { ukr: "Незважаючи на попередження, вона все одно збирається подорожувати сама.",
+          correct: "Despite the warnings, she is still going to travel alone.",
+          wrong1: "Despite the warnings, she will still travel alone.",
+          wrong2: "Despite the warnings, she is about travel alone." },
+        { ukr: "Вони ось-ось підпишуть контракт — фінальні деталі.",
+          correct: "They are about to sign the contract — final details.",
+          wrong1: "They will about to sign the contract — final details.",
+          wrong2: "They are going to sign the contract — final details." },
+        { ukr: "Якщо ти не припиниш, я піду геть.",
+          correct: "If you don't stop, I will leave.",
+          wrong1: "If you don't stop, I am going to leave.",
+          wrong2: "If you don't stop, I leave." },
+        { ukr: "Це неймовірно! Вона збирається заспівати на сцені вперше.",
+          correct: "This is incredible! She is going to sing on stage for the first time.",
+          wrong1: "This is incredible! She will sing on stage for the first time.",
+          wrong2: "This is incredible! She is about sing on stage." },
+        { ukr: "Дощ ось-ось почнеться, відчувається вологість.",
+          correct: "The rain is about to start, the humidity is felt.",
+          wrong1: "The rain will start, the humidity is felt.",
+          wrong2: "The rain is going start, the humidity is felt." },
+        { ukr: "Я переконаний, що вони виграють турнір.",
+          correct: "I am convinced they will win the tournament.",
+          wrong1: "I am convinced they are going to win the tournament.",
+          wrong2: "I am convinced they win the tournament." },
+        { ukr: "Він збирається покинути роботу, бо знайшов кращу пропозицію.",
+          correct: "He is going to quit the job because he found a better offer.",
+          wrong1: "He will quit the job because he found a better offer.",
+          wrong2: "He is about quit the job because he found a better offer." },
+        { ukr: "Увага! Вибухівка ось-ось детонує.",
+          correct: "Attention! The explosive is about to detonate.",
+          wrong1: "Attention! The explosive will detonate.",
+          wrong2: "Attention! The explosive going to detonate." },
+        { ukr: "Обіцяю, що повернуся до світанку.",
+          correct: "I promise I will return by dawn.",
+          wrong1: "I promise I am going to return by dawn.",
+          wrong2: "I promise I return by dawn." },
+        { ukr: "Згідно з прогнозом, температура підніметься вище 30° завтра.",
+          correct: "According to the forecast, the temperature will rise above 30° tomorrow.",
+          wrong1: "According to the forecast, the temperature is going to rise above 30° tomorrow.",
+          wrong2: "According to the forecast, the temperature rises above 30° tomorrow." },
+        { ukr: "Вона ось-ось оприлюднить важливу заяву — всі замовкли.",
+          correct: "She is about to make an important statement — everyone fell silent.",
+          wrong1: "She will about to make an important statement.",
+          wrong2: "She is going to make an important statement — everyone fell silent." },
+        { ukr: "Якщо ти продовжиш у тому ж дусі, ти досягнеш успіху.",
+          correct: "If you continue in the same spirit, you will succeed.",
+          wrong1: "If you continue, you are going to succeed.",
+          wrong2: "If you continue, you succeed." }
+    ];
 
-        // helpers
-        function shuffleArray(arr) {
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-            return arr;
+    function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
         }
+        return arr;
+    }
 
-        // queue for no-repetition infinite mode
-        let pendingPool = [];
-        let answeredCounter = 0;
-        let score = 0;
-        let answerLock = false;
-        let currentQuestion = null;
-        let currentOptions = [];
-        let currentCorrectIndex = -1;
+    let pendingPool = [];
+    let answeredCounter = 0;
+    let score = 0;
+    let answerLock = false;
+    let currentQuestion = null;
+    let currentOptions = [];
+    let currentCorrectIndex = -1;
 
-        // dom
-        const ukrSpan = document.getElementById("ukrPhrase");
-        const optionsDiv = document.getElementById("optionsList");
-        const feedbackDiv = document.getElementById("feedbackMessage");
-        const nextButton = document.getElementById("nextBtn");
-        const finishButton = document.getElementById("finishBtn");
-        const resetButton = document.getElementById("resetBtn");
-        const levelSpan = document.getElementById("levelLabel");
-        const progressFill = document.getElementById("progressFill");
+    const ukrSpan = document.getElementById("ukrPhrase");
+    const optionsDiv = document.getElementById("optionsList");
+    const feedbackDiv = document.getElementById("feedbackMessage");
+    const nextButton = document.getElementById("nextBtn");
+    const finishButton = document.getElementById("finishBtn");
+    const resetButton = document.getElementById("resetBtn");
+    const levelSpan = document.getElementById("levelLabel");
+    const progressFill = document.getElementById("progressFill");
 
-        function rebuildPool() {
-            const fresh = shuffleArray([...FULL_BANK]);
-            pendingPool = fresh.map((q, idx) => ({ ...q, uid: idx + Math.random() }));
+    function rebuildPool() {
+        const fresh = shuffleArray([...FULL_BANK]);
+        pendingPool = fresh.map((q, idx) => ({ ...q, uid: idx + Math.random() }));
+    }
+
+    function getNextUnique() {
+        if (pendingPool.length === 0) {
+            const nextCycle = shuffleArray([...FULL_BANK]);
+            pendingPool = nextCycle.map((q, idx) => ({ ...q, uid: idx + Date.now() + Math.random() }));
         }
+        return pendingPool.shift();
+    }
 
-        function getNextUnique() {
-            if (pendingPool.length === 0) {
-                const nextCycle = shuffleArray([...FULL_BANK]);
-                pendingPool = nextCycle.map((q, idx) => ({ ...q, uid: idx + Date.now() + Math.random() }));
-            }
-            return pendingPool.shift();
+    function shuffleOptions(correct, w1, w2) {
+        let opts = [correct, w1, w2];
+        for (let i = opts.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [opts[i], opts[j]] = [opts[j], opts[i]];
         }
+        const correctIdx = opts.findIndex(opt => opt === correct);
+        return { optsList: opts, correctIdx };
+    }
 
-        function shuffleOptions(correct, w1, w2) {
-            let opts = [correct, w1, w2];
-            for (let i = opts.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [opts[i], opts[j]] = [opts[j], opts[i]];
-            }
-            const correctIdx = opts.findIndex(opt => opt === correct);
-            return { optsList: opts, correctIdx };
-        }
-
-        function renderOptions(opts, correctIdx) {
-            optionsDiv.innerHTML = "";
-            opts.forEach((opt, idx) => {
-                const row = document.createElement("div");
-                row.className = "option-item";
-                const letterSpan = document.createElement("span");
-                letterSpan.className = "option-letter";
-                letterSpan.innerText = String.fromCharCode(65 + idx);
-                const textSpan = document.createElement("span");
-                textSpan.className = "option-english";
-                textSpan.innerText = opt;
-                row.appendChild(letterSpan);
-                row.appendChild(textSpan);
-                row.addEventListener("click", () => {
-                    if (answerLock) return;
-                    handleChoice(idx, correctIdx, opt);
-                });
-                optionsDiv.appendChild(row);
+    function renderOptions(opts, correctIdx) {
+        optionsDiv.innerHTML = "";
+        opts.forEach((opt, idx) => {
+            const row = document.createElement("div");
+            row.className = "option-item";
+            const letterSpan = document.createElement("span");
+            letterSpan.className = "option-letter";
+            letterSpan.innerText = String.fromCharCode(65 + idx);
+            const textSpan = document.createElement("span");
+            textSpan.className = "option-english";
+            textSpan.innerText = opt;
+            row.appendChild(letterSpan);
+            row.appendChild(textSpan);
+            row.addEventListener("click", () => {
+                if (answerLock) return;
+                handleChoice(idx, correctIdx, opt);
             });
-        }
+            optionsDiv.appendChild(row);
+        });
+    }
 
-        function handleChoice(selectedIdx, correctIdx, chosenText) {
-            if (answerLock) return;
-            answerLock = true;
-            const isAnswerCorrect = (selectedIdx === correctIdx);
-            const correctAnswer = currentOptions[correctIdx];
-            if (isAnswerCorrect) {
-                score++;
-                feedbackDiv.innerText = `correct. "${correctAnswer}" — exact translation. +1 point.`;
-                feedbackDiv.className = "feedback-block feedback-correct";
+    function handleChoice(selectedIdx, correctIdx, chosenText) {
+        if (answerLock) return;
+        answerLock = true;
+        const isAnswerCorrect = (selectedIdx === correctIdx);
+        const correctAnswer = currentOptions[correctIdx];
+        if (isAnswerCorrect) {
+            score++;
+            feedbackDiv.innerText = `correct. "${correctAnswer}" — exact translation. +1 point.`;
+            feedbackDiv.className = "feedback-block feedback-correct";
+        } else {
+            feedbackDiv.innerText = `incorrect. right answer: "${correctAnswer}". you chose: "${chosenText}". observe the subtle pattern.`;
+            feedbackDiv.className = "feedback-block feedback-wrong";
+        }
+        highlightChoices(selectedIdx, correctIdx, isAnswerCorrect);
+        disableOptions(true);
+        nextButton.disabled = false;
+        answeredCounter++;
+        updateProgressAndLabel();
+    }
+
+    function highlightChoices(chosen, correct, wasCorrect) {
+        const rows = document.querySelectorAll(".option-item");
+        rows.forEach((row, idx) => {
+            if (idx === correct) {
+                row.style.backgroundColor = "#eaf9f0";
+                row.style.borderLeft = "3px solid #5fae8b";
+            }
+            if (!wasCorrect && idx === chosen && idx !== correct) {
+                row.style.backgroundColor = "#fff0ea";
+                row.style.borderLeft = "3px solid #e09d7c";
+            }
+        });
+    }
+
+    function disableOptions(disabled) {
+        const rows = document.querySelectorAll(".option-item");
+        rows.forEach(row => {
+            if (disabled) {
+                row.style.pointerEvents = "none";
+                row.classList.add("opt-disabled");
             } else {
-                feedbackDiv.innerText = `incorrect. right answer: "${correctAnswer}". you chose: "${chosenText}". observe the subtle pattern.`;
-                feedbackDiv.className = "feedback-block feedback-wrong";
+                row.style.pointerEvents = "auto";
+                row.classList.remove("opt-disabled");
+                row.style.backgroundColor = "";
+                row.style.borderLeft = "";
             }
-            highlightChoices(selectedIdx, correctIdx, isAnswerCorrect);
-            disableOptions(true);
-            nextButton.disabled = false;
-            answeredCounter++;
-            updateProgressAndLabel();
-        }
+        });
+    }
 
-        function highlightChoices(chosen, correct, wasCorrect) {
-            const rows = document.querySelectorAll(".option-item");
-            rows.forEach((row, idx) => {
-                if (idx === correct) {
-                    row.style.backgroundColor = "#eaf9f0";
-                    row.style.borderLeft = "3px solid #5fae8b";
-                }
-                if (!wasCorrect && idx === chosen && idx !== correct) {
-                    row.style.backgroundColor = "#fff0ea";
-                    row.style.borderLeft = "3px solid #e09d7c";
-                }
-            });
-        }
+    function updateProgressAndLabel() {
+        const totalShown = answeredCounter;
+        let percent = Math.min(100, (totalShown % 20) * 5);
+        if (totalShown < 20) percent = (totalShown / 20) * 100;
+        progressFill.style.width = `${percent}%`;
+        if (totalShown < 7) levelSpan.innerText = "explorer · similar traps";
+        else if (totalShown < 14) levelSpan.innerText = "adept · grammar focus";
+        else levelSpan.innerText = "master · expert nuances";
+    }
 
-        function disableOptions(disabled) {
-            const rows = document.querySelectorAll(".option-item");
-            rows.forEach(row => {
-                if (disabled) {
-                    row.style.pointerEvents = "none";
-                    row.classList.add("opt-disabled");
-                } else {
-                    row.style.pointerEvents = "auto";
-                    row.classList.remove("opt-disabled");
-                    row.style.backgroundColor = "";
-                    row.style.borderLeft = "";
-                }
-            });
-        }
+    function loadQuestion() {
+        const q = getNextUnique();
+        if (!q) return;
+        currentQuestion = q;
+        const { optsList, correctIdx } = shuffleOptions(q.correct, q.wrong1, q.wrong2);
+        currentOptions = optsList;
+        currentCorrectIndex = correctIdx;
+        ukrSpan.innerText = q.ukr;
+        renderOptions(currentOptions, currentCorrectIndex);
+        answerLock = false;
+        nextButton.disabled = true;
+        feedbackDiv.innerText = "";
+        feedbackDiv.className = "feedback-block";
+        disableOptions(false);
+    }
 
-        function updateProgressAndLabel() {
-            const totalShown = answeredCounter;
-            let percent = Math.min(100, (totalShown % 20) * 5);
-            if (totalShown < 20) percent = (totalShown / 20) * 100;
-            progressFill.style.width = `${percent}%`;
-            if (totalShown < 7) levelSpan.innerText = "explorer · similar traps";
-            else if (totalShown < 14) levelSpan.innerText = "adept · grammar focus";
-            else levelSpan.innerText = "master · expert nuances";
-        }
+    function nextHandler() {
+        if (!answerLock && nextButton.disabled) return;
+        if (nextButton.disabled) return;
+        loadQuestion();
+    }
 
-        function loadQuestion() {
-            const q = getNextUnique();
-            if (!q) return;
-            currentQuestion = q;
-            const { optsList, correctIdx } = shuffleOptions(q.correct, q.wrong1, q.wrong2);
-            currentOptions = optsList;
-            currentCorrectIndex = correctIdx;
-            ukrSpan.innerText = q.ukr;
-            renderOptions(currentOptions, currentCorrectIndex);
-            answerLock = false;
-            nextButton.disabled = true;
-            feedbackDiv.innerText = "";
-            feedbackDiv.className = "feedback-block";
-            disableOptions(false);
-        }
-
-        function nextHandler() {
-            if (!answerLock && nextButton.disabled) return;
-            if (nextButton.disabled) return;
-            loadQuestion();
-        }
-
-        function finishTest() {
-            answerLock = true;
-            disableOptions(true);
-            nextButton.disabled = true;
-            ukrSpan.innerText = "test completed — summary";
-            optionsDiv.innerHTML = `<div style="background:#fefaf5; border:1px solid #e4e9ef; padding: 1.8rem; text-align:center; margin-top:10px;">
+    function finishTest() {
+        answerLock = true;
+        disableOptions(true);
+        nextButton.disabled = true;
+        ukrSpan.innerText = "test completed — summary";
+        optionsDiv.innerHTML = `<div style="background:#fefaf5; border:1px solid #e4e9ef; padding: 1.8rem; text-align:center; margin-top:10px;">
             <strong>final result</strong><br>
             total questions answered: ${answeredCounter}<br>
             correct answers: ${score}<br>
             thank you for training will / going to / about to.
             </div>`;
-            feedbackDiv.innerText = "";
-            progressFill.style.width = "100%";
-        }
+        feedbackDiv.innerText = "";
+        progressFill.style.width = "100%";
+    }
 
-        function resetGame() {
-            rebuildPool();
-            answeredCounter = 0;
-            score = 0;
-            answerLock = false;
-            loadQuestion();
-            updateProgressAndLabel();
-            nextButton.disabled = true;
-            feedbackDiv.innerText = "";
-            feedbackDiv.className = "feedback-block";
-            disableOptions(false);
-        }
-
+    function resetGame() {
         rebuildPool();
+        answeredCounter = 0;
+        score = 0;
+        answerLock = false;
         loadQuestion();
         updateProgressAndLabel();
+        nextButton.disabled = true;
+        feedbackDiv.innerText = "";
+        feedbackDiv.className = "feedback-block";
+        disableOptions(false);
+    }
 
-        nextButton.addEventListener("click", nextHandler);
-        finishButton.addEventListener("click", finishTest);
-        resetButton.addEventListener("click", resetGame);
-    })();
+    rebuildPool();
+    loadQuestion();
+    updateProgressAndLabel();
+
+    nextButton.addEventListener("click", nextHandler);
+    finishButton.addEventListener("click", finishTest);
+    resetButton.addEventListener("click", resetGame);
+})();
 </script>
 </body>
 </html>
